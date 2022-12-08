@@ -5,11 +5,9 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('pokemon', {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       primaryKey: true,
       allowNull: false,
-      autoIncrement: true,
-      initialAutoIncrement: 1000,
     },
     name: {
       type: DataTypes.STRING(200),
@@ -86,5 +84,13 @@ module.exports = (sequelize) => {
       allowNull: true,
       field: 'back_sprite'
     },
+    from: {
+      type: DataTypes.STRING(4),
+      validate: {
+        isAlpha: true
+      },
+      allowNull: false,
+      defaultValue: 'db'
+    }
   });
 };
