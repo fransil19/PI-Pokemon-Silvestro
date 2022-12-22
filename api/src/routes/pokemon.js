@@ -32,8 +32,8 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const { name, height, weight, speed, life, attack, defense } = req.body
-        const result = await createPokemon(name, height, weight, speed, life, attack, defense)
+        const { name, height, weight, speed, life, attack, defense, types } = req.body
+        const result = await createPokemon(name, height, weight, speed, life, attack, defense, types)
         return res.status(201).json(result)
     } catch (error) {
         return res.json({ message: error.message })

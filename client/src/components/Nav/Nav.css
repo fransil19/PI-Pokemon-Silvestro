@@ -1,0 +1,10 @@
+.styled-ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+ul a{
+    text-decoration: none;
+}

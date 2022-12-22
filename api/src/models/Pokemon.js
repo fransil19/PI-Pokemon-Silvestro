@@ -76,14 +76,6 @@ module.exports = (sequelize) => {
       allowNull: true,
       field: 'front_sprite'
     },
-    backSprite: {
-      type: DataTypes.STRING(300),
-      validate: {
-        isUrl: true,
-      },
-      allowNull: true,
-      field: 'back_sprite'
-    },
     from: {
       type: DataTypes.STRING(4),
       validate: {
