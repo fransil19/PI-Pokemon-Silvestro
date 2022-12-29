@@ -1,3 +1,72 @@
-.card{
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(212,214,95,1) 18%, rgba(210,209,42,1) 50%, rgba(168,167,31,1) 100%);
+.pokecard{
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5%;
+    width: 400px;
+    height: 300px;
+    margin-bottom: 10px ;
+    background: linear-gradient(90deg, #8B939A 50%, #5B6467 100%);
+}
+
+.pokeName{
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.pokecard img{
+    width: 40%;
+    height: 80%;
+}
+
+.pokecard ul{
+    list-style: none;
+}
+
+.typeContainer{
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.type-button{
+    border: 1px none rgb(202, 194, 194);
+    border-radius: 5px;
+    width: 20%;
+    font-size: medium;
+    text-transform: capitalize;
+}
+
+.imgContainer{
+    height: 65%;
+}
+
+.fire{
+    background-color: orange;
+}
+
+.fire a {
+    color: white;
+}
+
+.grass{
+    background-color: rgb(80, 189, 80);
+}
+
+.water{
+    background-color: rgb(58, 165, 197);
+}
+
+.normal{
+    background-color: rgb(196, 188, 188);
+}
+
+.flying{
+    background-color: rgb(113, 203, 219);
+}
+
+.bug{
+    background-color: rgb(158, 230, 43);
+}
+
+.electric{
+    background-color: rgb(235, 238, 38);
 }

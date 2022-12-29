@@ -64,7 +64,7 @@ const rootReducer = (state = initialState, action) => {
       }
 
     case ORDER_POKEMON:
-      if (action.sense) {
+      if (action.payload !== 'alph') {
         if (action.sense === 'asc') {
           return {
             ...state,
@@ -83,11 +83,26 @@ const rootReducer = (state = initialState, action) => {
         }
       }
       else {
-        return {
-          ...state,
-          filteredPokemons: [...state.filteredPokemons].sort((a, b) => {
-            return a[action.payload] - b[action.payload]
-          })
+        if (action.sense === 'asc') {
+          return {
+            ...state,
+            filteredPokemons: [...state.filteredPokemons].sort((a, b) => {
+              if(a.name > b.name) return 1
+              if(b.name > a.name) return -1
+              return 0
+              //return a.name - b.name
+            })
+          }
+        }
+        else {
+          return {
+            ...state,
+            filteredPokemons: [...state.filteredPokemons].sort((a, b) => {
+              if(a.name > b.name) return -1
+              if(b.name > a.name) return 1
+              return 0
+            })
+          }
         }
       }
     default:

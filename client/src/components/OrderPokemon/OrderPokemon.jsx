@@ -1,4 +1,4 @@
-//import "./CharacterCard.css";
+import "./OrderPokemon.css";
 import React from "react";
 import * as actions from "../../redux/actions";
 import { useDispatch} from "react-redux";
@@ -22,9 +22,12 @@ const OrderPokemon = (props) => {
   };
 
   return (
-    <div>
-      <select name="types" onChange={onChangeSelector}>
-          <option key="id"  value="id">ID</option>
+    <div className='order-selector'>
+      <select name="types" onChange={onChangeSelector} className="select-order-input">
+          <option key="id-asc"  value="id-asc">ID-asc</option>
+          <option key="id-desc"  value="id-desc">ID-desc</option>
+          <option key="alph-asc"  value="alph-asc">Alphabetical-asc</option>
+          <option key="alph-desc"  value="alph-desc">Alphabetical-desc</option>
           <option key="attack-asc" value="attack-asc">Attack-asc</option>
           <option key="attack-desc" value="attack-desc">Attack-desc</option>
           <option key="defense-asc" value="defense-asc">Defense-asc</option>

@@ -1,6 +1,5 @@
-//import "./CharacterCard.css";
-import React, {useState} from "react";
-// Importar las actions como Object Modules, sino los test no funcionarán!
+import "./PokemonContainer.css";
+import React, { useState } from "react";
 import * as actions from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import PokemonCard from "../PokemonCard/PokemonCard";
@@ -8,11 +7,10 @@ import SearchBar from "../SearchBar/SearchBar";
 import TypeFilter from "../TypeFilter/TypeFilter";
 import OrderPokemon from "../OrderPokemon/OrderPokemon";
 import Pagination from "../Pagination/Pagination";
-//PARA QUE LOS TEST CORRAN, DEBEN HACER ESTE COMPONENTE COMO UN FUNCIONAL COMPONENT.
 
 const PokemonContainer = (props) => {
   const dispatch = useDispatch();
-  const [currentPage, setCurrentPage] = useState(1)
+  const [currentPage, setCurrentPage] = useState(1);
   const filteredPokemons = useSelector((state) => state.filteredPokemons);
 
   const pokesPerPage = 12;
@@ -20,42 +18,50 @@ const PokemonContainer = (props) => {
 
   const indexOfLastPoke = currentPage * pokesPerPage;
   const indexOfFirstPoke = indexOfLastPoke - pokesPerPage;
- 
+
   const currentPokemons = filteredPokemons.slice(
     indexOfFirstPoke,
     indexOfLastPoke
   );
 
-    /* const deleteCharClick = (id) => {
+  /* const deleteCharClick = (id) => {
     dispatch(actions.deleteCharacter(id))
   } */
 
   React.useEffect(() => {
     dispatch(actions.getPokemons());
-  },[]);
+  }, []);
 
   return (
-    <div className="card">
-      <h1>List of Pokemons</h1>
-      <SearchBar/>
-      <TypeFilter/>
-      <OrderPokemon/>
-      {currentPokemons
-        ? currentPokemons.map((pokemon) => {
-            return <PokemonCard 
-                        key = {pokemon.id}
-                        id = {pokemon.id}
-                        name = {pokemon.name}
-                        frontSprite = {pokemon.frontSprite}
-                        types = {pokemon.types || pokemon.tipos}
-                    />;
-          })
-        : null}
-        <Pagination 
+    <div className="container">
+      <div className="compContainer">
+        <SearchBar />
+        <div className="filter-container">
+          <TypeFilter />
+          <OrderPokemon />
+        </div>
+
+        <div className="pokeContainer">
+          {currentPokemons
+            ? currentPokemons.map((pokemon) => {
+                return (
+                  <PokemonCard
+                    key={pokemon.id}
+                    id={pokemon.id}
+                    name={pokemon.name}
+                    frontSprite={pokemon.frontSprite}
+                    types={pokemon.types || pokemon.tipos}
+                  />
+                );
+              })
+            : null}
+        </div>
+        <Pagination
           currentPage={currentPage}
-          totalPages = {totalPages}
-          onChangePage={page => setCurrentPage(page)}
+          totalPages={totalPages}
+          onChangePage={(page) => setCurrentPage(page)}
         />
+      </div>
     </div>
   );
 };

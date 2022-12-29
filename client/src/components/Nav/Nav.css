@@ -1,10 +1,23 @@
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
 .styled-ul{
+    width: 40%;
+    margin-right: 5%;
     list-style: none;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
+
 }
 
 ul a{
     text-decoration: none;
+}
+
+.button-disable{
+    display:none;
 }

@@ -1,0 +1,15 @@
+.order-selector{
+    margin-top: 10px;
+    width: 45%;
+}
+
+.select-order-input{
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #5A5A5A;
+    color: aliceblue;
+    font-size: medium;
+
+    width: 100%;
+}

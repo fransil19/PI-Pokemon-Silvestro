@@ -1,0 +1,40 @@
+.create-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.create-title{
+    font-size: 50px;
+    background: -webkit-linear-gradient(#766A65, #EDD812);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.create-container label{
+    color: white;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+.create-container input{
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #5A5A5A;
+    color: aliceblue;
+    font-size: medium;
+    width: 40%;
+}
+
+.create-container select{
+    height: 150px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #5A5A5A;
+    color: aliceblue;
+    font-size: medium;
+    width: 40%;
+    text-transform: capitalize;
+}

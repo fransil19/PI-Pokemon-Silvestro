@@ -1,3 +1,4 @@
+import "./CreatePokemon.css";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../redux/actions";
@@ -50,7 +51,8 @@ const CreatePokemon = () => {
 
   return (
     <div>
-      <form action="" onSubmit={buttonSubmit}>
+      <h2 className="create-title">Create your Pokemon</h2>
+      <form action="" onSubmit={buttonSubmit} className="create-container">
         <label htmlFor="">Name</label>
         <input type="text" name="name" onChange={onChangeInput} />
         <label htmlFor="">Life</label>
@@ -67,7 +69,6 @@ const CreatePokemon = () => {
         <input type="number" name="weight" onChange={onChangeInput} />
         <label htmlFor="">types</label>
         <select name="types" onChange={onChangeSelector} multiple>
-          <option value="">--CHOOSE--</option>
           {types
             ? types.map((tipo) => {
                 return (

@@ -1,0 +1,33 @@
+.home-container {
+    height: 1080px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.home-title {
+    margin-top: 250px;
+    font-size: 90px;
+    background: -webkit-linear-gradient(#766A65, #EDD812);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.home-button{
+    margin-top: 100px;
+    width: 200px;
+    height: 70px;
+    border: 3px solid black;
+    border-radius: 50px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #FFE884 50%, #FFF293 100%);
+    
+}
+
+.home-button a{
+    text-decoration: none;
+    font-family:fantasy;
+    font-size: 15px;
+    color: black;
+}

@@ -1,0 +1,12 @@
+.button-pag{
+    background-color: #738aa8;
+    color: white;
+    width: 40px;
+    height: 25px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.button-pag:hover{
+    background-color: #3e5a7e;
+}

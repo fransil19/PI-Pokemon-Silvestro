@@ -1,4 +1,4 @@
-//import "./CharacterCard.css";
+import "./TypeFilter.css";
 import React from "react";
 import * as actions from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,13 +21,13 @@ const TypeFilter = (props) => {
   };
 
   return (
-    <div>
-      <select name="types" onChange={onChangeSelector}>
+    <div className="type-selector">
+      <select name="types" onChange={onChangeSelector} className="select-type-input">
           <option value="all">All</option>
           {types
             ? types.map((tipo) => {
                 return (
-                  <option key={tipo.id} value={tipo.name}>
+                  <option key={tipo.id} value={tipo.name} className="select-type-option">
                     {tipo.name}
                   </option>
                 );
