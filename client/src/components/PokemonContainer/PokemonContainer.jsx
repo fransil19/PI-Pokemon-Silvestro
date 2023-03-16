@@ -30,7 +30,7 @@ const PokemonContainer = (props) => {
 
   React.useEffect(() => {
     dispatch(actions.getPokemons());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="container">

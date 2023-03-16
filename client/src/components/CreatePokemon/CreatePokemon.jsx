@@ -21,7 +21,7 @@ const CreatePokemon = () => {
 
   React.useEffect(() => {
     dispatch(actions.getTypes());
-  }, []);
+  }, [dispatch]);
 
   const onChangeInput = (e) => {
     if (e.target.name === "name") {

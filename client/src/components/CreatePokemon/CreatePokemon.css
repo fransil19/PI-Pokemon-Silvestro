@@ -8,6 +8,7 @@
 .create-title{
     font-size: 50px;
     background: -webkit-linear-gradient(#766A65, #EDD812);
+    background-clip: inherit;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

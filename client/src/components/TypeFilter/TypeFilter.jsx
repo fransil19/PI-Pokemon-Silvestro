@@ -13,7 +13,7 @@ const TypeFilter = (props) => {
 
   React.useEffect(() => {
     dispatch(actions.getTypes());
-  }, []);
+  }, [dispatch]);
 
   const onChangeSelector = (e) => {
     let filter = e.target.options[e.target.selectedIndex].value;
