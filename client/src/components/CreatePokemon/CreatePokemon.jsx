@@ -7,6 +7,7 @@ const CreatePokemon = () => {
   const types = useSelector((state) => state.types);
   const pokemons = useSelector((state) => state.pokemons);
   const dispatch = useDispatch();
+  const [error, setError] = useState("");
   const [input, setInput] = useState({
     name: "",
     life: null,
@@ -23,25 +24,46 @@ const CreatePokemon = () => {
   }, []);
 
   const onChangeInput = (e) => {
-    if ([e.target.name] === "types") {
-      setInput({
-        ...input,
-        [e.target.name]: input[e.target.name].concat([e.target.value]),
-      });
-    } else {
-      setInput({
-        ...input,
-        [e.target.name]: e.target.value,
-      });
+    if (e.target.name === "name") {
+      if (!/^[a-zA-Z\s]*$/.test(e.target.value)) {
+        setError("The name must have only letters");
+      }
+      else{
+        setInput({
+          ...input,
+          [e.target.name]: e.target.value,
+        });
+        setError("")
+      }
     }
+    else{
+      if(e.target.value<=0 || e.target.value > 300){
+        setError(`${e.target.name} must be between 1 and 300`);
+      }
+      else{
+        setInput({
+          ...input,
+          [e.target.name]: e.target.value,
+        });
+        setError("")
+      }
+    }
+    
   };
 
   const onChangeSelector = (e) => {
     let value = Array.from(e.target.selectedOptions, (option) => option.value);
-    setInput({
-      ...input,
-      types: value,
-    });
+    if(value.length > 2){
+      setError(`You must choose up to 2 types`);
+    }
+    else{
+      setInput({
+        ...input,
+        types: value,
+      });
+      setError("")
+    }
+    
   };
   const buttonSubmit = (e) => {
     e.preventDefault();
@@ -79,7 +101,8 @@ const CreatePokemon = () => {
               })
             : null}
         </select>
-        <button type="submit">Create Pokemon</button>
+        {error !== "" ? <p className="form-error">{error}</p> : null}
+        <button type="submit" className="create-submit">Create Pokemon</button>
       </form>
     </div>
   );

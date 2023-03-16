@@ -3,7 +3,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const PokemonCard = (props) => {
-  const typeClass = props.types[0].id ? props.types[0].name : props.types[0];
 
   return (
     <div className={`pokecard`}>
@@ -11,7 +10,7 @@ const PokemonCard = (props) => {
         <h3>
           <Link to={`/pokemons/${props.id}`} className="pokeName">{props.name}</Link>
         </h3>
-        <img src={props.frontSprite} alt="" />
+        {props.frontSprite ? <img src={props.frontSprite} alt="" /> : <img src="/pokeball-png-45332.png" alt="" />}
       </div>
       <div className="typeContainer">
       {props.types

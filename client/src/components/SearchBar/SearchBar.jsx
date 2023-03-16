@@ -23,7 +23,7 @@ const SearchBar = (props) => {
       <form action="" onSubmit={buttonSubmit}>
         <input type="text" name="name" onChange={onChangeInput} placeholder="Enter the pokemon name" value={search} className="searchInput"/>
         <button type="submit" className="searchButton">Search</button>
-        {errors.searchBar ? <p>{errors.searchBar}</p> : null}
+        {errors.searchBar ? <p className="error-alert">{errors.searchBar}</p> : null}
       </form>
     </div>
   );

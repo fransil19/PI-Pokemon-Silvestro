@@ -10,13 +10,13 @@ const Nav = (props) => {
         <ul className="styled-ul">
           {location.pathname !== "/pokemons" ? (
             <li>
-              <button>
+              <button className="nav-button">
                 <Link to={`/pokemons`}>Pokemons</Link>
               </button>
             </li>
           ) : (
             <li>
-              <button>
+              <button className="nav-button">
                 <Link to={`/pokemons`} onClick={() => window.location.reload()}>
                   Pokemons
                 </Link>
@@ -25,13 +25,13 @@ const Nav = (props) => {
           )}
           {location.pathname !== "/pokemons/create" ? (
             <li>
-              <button>
+              <button className="nav-button">
                 <Link to={`/pokemons/create`}>Create Pokemon</Link>
               </button>
             </li>
           ) : (
             <li>
-              <button>
+              <button className="nav-button">
                 <Link
                   to={`/pokemons/create`}
                   onClick={() => window.location.reload()}

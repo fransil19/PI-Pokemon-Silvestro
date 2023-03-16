@@ -9,10 +9,15 @@
 }
 
 .searchButton{
+    margin-left: 2px;
     border: 2px solid black;
     border-radius: 15px;
     height: 35px;
     font-size: 15px;
     background-color: #5A5A5A;
     color: white;
+}
+
+.error-alert{
+    color: rgb(206, 74, 74);
 }
