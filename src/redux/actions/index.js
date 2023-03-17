@@ -10,21 +10,22 @@ export const FILTER_POKEMON = "FILTER_POKEMON";
 export const ORDER_POKEMON = "ORDER_POKEMON";
 
 const {
-    URL_BACK
+    REACT_APP_URL_BACK
   } = process.env;
 
 export const getPokemons = (name) => {
     return async function (dispatch) {
         if (name) {
+            console.log("URL_BACK:", REACT_APP_URL_BACK);
             await axios
-                .get(`${URL_BACK}/pokemons/?name=${name}`)
+                .get(`${REACT_APP_URL_BACK}/pokemons/?name=${name}`)
                 .then((response) =>
                     dispatch({ type: GET_ALL_POKEMON, payload: response.data })
                 );
         }
         else {
             await axios
-                .get(`${URL_BACK}/pokemons`)
+                .get(`${REACT_APP_URL_BACK}/pokemons`)
                 .then((response) =>
                     dispatch({ type: GET_ALL_POKEMON, payload: response.data })
                 );
@@ -35,7 +36,7 @@ export const getPokemons = (name) => {
 export const getPokemonById = (id) => {
     return async function (dispatch) {
         await axios
-            .get(`${URL_BACK}/pokemons/${id}`)
+            .get(`${REACT_APP_URL_BACK}/pokemons/${id}`)
             .then((response) => {
                 dispatch({ type: GET_POKEMON_BY_ID, payload: response.data })
             }
@@ -47,7 +48,7 @@ export const getPokemonById = (id) => {
 export const getPokemonByName = (name) => {
     return async function (dispatch) {
         await axios
-            .get(`${URL_BACK}/pokemons?name=${name}`)
+            .get(`${REACT_APP_URL_BACK}/pokemons?name=${name}`)
             .then((response) => {
                 if (response.data.message) {
                     dispatch({ type: SET_ERROR, payload: response.data.message, errorField: "searchBar" })
@@ -63,7 +64,7 @@ export const getPokemonByName = (name) => {
 export const getTypes = () => {
     return async function (dispatch) {
         await axios
-            .get(`${URL_BACK}/types`)
+            .get(`${REACT_APP_URL_BACK}/types`)
             .then((response) => {
                 dispatch({ type: GET_TYPES, payload: response.data })
             }
@@ -75,7 +76,7 @@ export const getTypes = () => {
 export const createPokemon = (pokemon) => {
     return async function (dispatch) {
         await axios
-            .post(`${URL_BACK}/pokemons`, pokemon)
+            .post(`${REACT_APP_URL_BACK}/pokemons`, pokemon)
             .then((response) => {
                 console.log(response.data);
                 dispatch({ type: CREATE_POKEMON, payload: response.data })
