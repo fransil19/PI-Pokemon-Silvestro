@@ -5,6 +5,8 @@ export const GET_POKEMON_BY_ID = "GET_POKEMON_BY_ID";
 export const GET_POKEMON_BY_NAME = "GET_POKEMON_BY_NAME";
 export const GET_TYPES = "GET_TYPES";
 export const CREATE_POKEMON = "CREATE_POKEMON";
+export const UPDATE_POKEMON = "UPDATE_POKEMON";
+export const DELETE_POKEMON = "DELETE_POKEMON";
 export const SET_ERROR = "SET_ERROR";
 export const FILTER_POKEMON = "FILTER_POKEMON";
 export const ORDER_POKEMON = "ORDER_POKEMON";
@@ -78,12 +80,35 @@ export const createPokemon = (pokemon) => {
         await axios
             .post(`${REACT_APP_URL_BACK}/pokemons`, pokemon)
             .then((response) => {
-                console.log(response.data);
                 dispatch({ type: CREATE_POKEMON, payload: response.data })
             }
 
             );
     };
+};
+
+export const updatePokemon = (pokemon) => {
+  return async function (dispatch) {
+      await axios
+          .put(`${REACT_APP_URL_BACK}/pokemons`, pokemon)
+          .then((response) => {
+              dispatch({ type: UPDATE_POKEMON, payload: response.data })
+          }
+
+          );
+  };
+};
+
+export const deletePokemon = (id) => {
+  return async function (dispatch) {
+      await axios
+          .delete(`${REACT_APP_URL_BACK}/pokemons/${id}`)
+          .then((response) => {
+              dispatch({ type: DELETE_POKEMON, payload: response.data })
+          }
+
+          );
+  };
 };
 
 export const filterPokemon = (filter) => {

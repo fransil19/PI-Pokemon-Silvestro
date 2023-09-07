@@ -10,6 +10,7 @@
 .pokeName{
     text-transform: capitalize;
     text-decoration: none;
+    color: #444a4d;
 }
 
 .pokecard img{
@@ -32,6 +33,7 @@
     border-radius: 5px;
     width: 20%;
     font-size: medium;
+    font-weight: 600;
     text-transform: capitalize;
 }
 
@@ -40,37 +42,77 @@
 }
 
 .fire{
-    background-color: orange;
+  background-color: #EE8130;
 }
 
 .fire a {
-    color: white;
+  color: white;
 }
 
 .grass{
-    background-color: rgb(80, 189, 80);
+  background-color: #7AC74C;
 }
 
 .water{
-    background-color: rgb(58, 165, 197);
+  background-color: #6390F0;
 }
 
 .normal{
-    background-color: rgb(196, 188, 188);
+  background-color: #A8A77A;
 }
 
 .flying{
-    background-color: rgb(113, 203, 219);
+  background-color: #A98FF3;
 }
 
 .bug{
-    background-color: rgb(158, 230, 43);
+  background-color: #A6B91A;
 }
 
 .electric{
-    background-color: rgb(235, 238, 38);
+  background-color: #F7D02C;
 }
 
 .poison{
-    background-color: rgb(146, 28, 150);
+  background-color: #A33EA1;
+}
+
+.ice{
+  background-color: #96D9D6;
+}
+
+.fighting{
+  background-color: #C22E28;
+}
+
+.ground{
+  background-color: #E2BF65;
+}
+
+.psychic{
+  background-color: #F95587;
+}
+
+.rock{
+  background-color: #B6A136;
+}
+
+.ghost{
+  background-color: #735797;
+}
+
+.dragon{
+  background-color: #6F35FC;
+}
+
+.dark{
+  background-color: #705746;
+}
+
+.steel{
+  background-color: #B7B7CE;
+}
+
+.fairy{
+  background-color: #D685AD;
 }

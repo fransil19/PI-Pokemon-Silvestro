@@ -6,6 +6,7 @@ import PokemonDetail from './components/PokemonDetail/PokemonDetail';
 import Home from './components/Home/Home';
 import Nav from './components/Nav/Nav';
 import CreatePokemon from './components/CreatePokemon/CreatePokemon';
+import EditPokemon from './components/EditPokemon/EditPokemon';
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
           <Nav />
           <PokemonContainer />
         </Route>
+        <Route exact path="/pokemons/:id/edit">
+          <Nav />
+          <EditPokemon />
+        </Route>
         <Route exact path="/pokemons/create">
           <Nav />
           <CreatePokemon />
@@ -26,6 +31,7 @@ function App() {
           <Nav />
           <PokemonDetail />
         </Route>
+        
       </Switch>
     </div>
   );

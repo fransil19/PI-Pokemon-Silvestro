@@ -1,28 +1,32 @@
-import "./CreatePokemon.css";
+import "./EditPokemon.css";
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../redux/actions";
 
-const CreatePokemon = () => {
+const EditPokemon = () => {
   const types = useSelector((state) => state.types);
+  const pokemon = useSelector((state) => state.pokemonDetail);
   const history = useHistory()
   const dispatch = useDispatch();
+
   const [error, setError] = useState("");
   const [input, setInput] = useState({
-    name: "",
-    life: 0,
-    attack: 0,
-    defense: 0,
-    speed: 0,
-    height: 0,
-    weight: 0,
-    types: [],
+    name: pokemon.name,
+    life: pokemon.life,
+    attack: pokemon.attack,
+    defense: pokemon.defense,
+    speed: pokemon.speed,
+    height: pokemon.height,
+    weight: pokemon.weight,
+    types: pokemon.types,
   });
+  const { id } = useParams();
 
   React.useEffect(() => {
     dispatch(actions.getTypes());
-  }, [dispatch]);
+    dispatch(actions.getPokemonById(id));
+  }, [dispatch, id]);
 
   const onChangeInput = (e) => {
     if (e.target.name === "name") {
@@ -69,53 +73,38 @@ const CreatePokemon = () => {
 
   const buttonSubmit = (e) => {
     e.preventDefault();
-    dispatch(actions.createPokemon(input));
+    const newPokemon = {
+      ...input,
+      id: pokemon.id
+    }
+    dispatch(actions.updatePokemon(newPokemon));
     history.push('/pokemons')
   };
-
-  const checkIfEmpty = () => {
-    let isEmpty = false;
-    for (const key in input) {
-      if(isNaN(input[key])){
-        if (input[key].length === 0) {
-          isEmpty = true;
-        }
-      }
-      else{
-        if(input[key] === 0){
-          isEmpty = true;
-        }
-      }
-    }
-    return isEmpty;
-  };
-
-  const isSubmitable = !error && !checkIfEmpty();
-
+  
   return (
     <div>
       <h2 className="create-title">Create your Pokemon</h2>
       <form action="" onSubmit={buttonSubmit} className="create-container">
         <label htmlFor="">Name</label>
-        <input type="text" name="name" onChange={onChangeInput} />
+        <input type="text" name="name" onChange={onChangeInput} value={input.name}/>
         <label htmlFor="">Life</label>
-        <input type="number" name="life" onChange={onChangeInput} />
+        <input type="number" name="life" onChange={onChangeInput} value={input.life}/>
         <label htmlFor="">attack</label>
-        <input type="number" name="attack" onChange={onChangeInput} />
+        <input type="number" name="attack" onChange={onChangeInput} value={input.attack}/>
         <label htmlFor="">defense</label>
-        <input type="number" name="defense" onChange={onChangeInput} />
+        <input type="number" name="defense" onChange={onChangeInput} value={input.defense}/>
         <label htmlFor="">speed</label>
-        <input type="number" name="speed" onChange={onChangeInput} />
+        <input type="number" name="speed" onChange={onChangeInput} value={input.speed}/>
         <label htmlFor="">height</label>
-        <input type="number" name="height" onChange={onChangeInput} />
+        <input type="number" name="height" onChange={onChangeInput} value={input.height}/>
         <label htmlFor="">weight</label>
-        <input type="number" name="weight" onChange={onChangeInput} />
+        <input type="number" name="weight" onChange={onChangeInput} value={input.weight}/>
         <label htmlFor="">types</label>
-        <select name="types" onChange={onChangeSelector} multiple>
+        <select name="types" onChange={onChangeSelector} multiple >
           {types
             ? types.map((tipo) => {
                 return (
-                  <option key={tipo.id} value={tipo.id}>
+                  <option key={tipo.id} value={tipo.id} >
                     {tipo.name}
                   </option>
                 );
@@ -123,10 +112,10 @@ const CreatePokemon = () => {
             : null}
         </select>
         {error !== "" ? <p className="form-error">{error}</p> : null}
-        <button type="submit" className="create-submit" disabled={!isSubmitable}>Create Pokemon</button>
+        <button type="submit" className="create-submit" >Update Pokemon</button>
       </form>
     </div>
   );
 };
 
-export default CreatePokemon;
+export default EditPokemon;

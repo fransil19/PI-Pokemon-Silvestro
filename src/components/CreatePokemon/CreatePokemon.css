@@ -55,4 +55,5 @@
     border-radius: 50px;
     font-size: large;
     background: linear-gradient(130deg, #c9b24f 50%, #FFF293 100%);
+    cursor: pointer;
 }
